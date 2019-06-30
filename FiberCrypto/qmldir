@@ -1,0 +1,4 @@
+module QtQuick.Controls.FiberCrypto
+plugin qtquickcontrols2fibercryptostyleplugin
+classname QtQuickControls2FiberCryptoStylePlugin
+depends QtQuick.Controls 2.5
