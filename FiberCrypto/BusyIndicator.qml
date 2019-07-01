@@ -36,8 +36,8 @@
 
 import QtQuick 2.12
 import QtQuick.Templates 2.12 as T
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 T.BusyIndicator {
     id: control
@@ -50,9 +50,9 @@ T.BusyIndicator {
     padding: 6
 
     contentItem: BusyIndicatorImpl {
-        implicitWidth: control.Material.touchTarget
-        implicitHeight: control.Material.touchTarget
-        color: control.Material.accentColor
+        implicitWidth: control.FiberCrypto.touchTarget
+        implicitHeight: control.FiberCrypto.touchTarget
+        color: control.FiberCrypto.accentColor
 
         running: control.running
         opacity: control.running ? 1 : 0
