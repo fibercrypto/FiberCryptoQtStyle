@@ -38,8 +38,8 @@ import QtQuick 2.12
 import QtQuick.Templates 2.12 as T
 import QtQuick.Controls 2.12
 import QtQuick.Controls.impl 2.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 T.CheckDelegate {
     id: control
@@ -56,7 +56,7 @@ T.CheckDelegate {
 
     icon.width: 24
     icon.height: 24
-    icon.color: enabled ? Material.foreground : Material.hintTextColor
+    icon.color: enabled ? FiberCrypto.foreground : FiberCrypto.hintTextColor
 
     indicator: CheckIndicator {
         x: text ? (control.mirrored ? control.leftPadding : control.width - width - control.rightPadding) : control.leftPadding + (control.availableWidth - width) / 2
@@ -76,13 +76,13 @@ T.CheckDelegate {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.enabled ? control.Material.foreground : control.Material.hintTextColor
+        color: control.enabled ? control.FiberCrypto.foreground : control.FiberCrypto.hintTextColor
     }
 
     background: Rectangle {
-        implicitHeight: control.Material.delegateHeight
+        implicitHeight: control.FiberCrypto.delegateHeight
 
-        color: control.highlighted ? control.Material.listHighlightColor : "transparent"
+        color: control.highlighted ? control.FiberCrypto.listHighlightColor : "transparent"
 
         Ripple {
             width: parent.width
@@ -92,7 +92,7 @@ T.CheckDelegate {
             pressed: control.pressed
             anchor: control
             active: control.down || control.visualFocus || control.hovered
-            color: control.Material.rippleColor
+            color: control.FiberCrypto.rippleColor
         }
     }
 }
