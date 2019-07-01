@@ -36,8 +36,8 @@
 
 import QtQuick 2.12
 import QtQuick.Templates 2.12 as T
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 T.CheckBox {
     id: control
@@ -66,7 +66,7 @@ T.CheckBox {
             anchor: control
             pressed: control.pressed
             active: control.down || control.visualFocus || control.hovered
-            color: control.checked ? control.Material.highlightedRippleColor : control.Material.rippleColor
+            color: control.checked ? control.FiberCrypto.highlightedRippleColor : control.FiberCrypto.rippleColor
         }
     }
 
@@ -76,7 +76,7 @@ T.CheckBox {
 
         text: control.text
         font: control.font
-        color: control.enabled ? control.Material.foreground : control.Material.hintTextColor
+        color: control.enabled ? control.FiberCrypto.foreground : control.FiberCrypto.hintTextColor
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
     }
