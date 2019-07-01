@@ -47,13 +47,13 @@
 
 QT_BEGIN_NAMESPACE
 
-class QtQuickControls2MaterialStylePlugin : public QQuickStylePlugin
+class QtQuickControls2FiberCryptoStylePlugin : public QQuickStylePlugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID QQmlExtensionInterface_iid)
 
 public:
-    QtQuickControls2MaterialStylePlugin(QObject *parent = nullptr);
+    QtQuickControls2FiberCryptoStylePlugin(QObject *parent = nullptr);
 
     void registerTypes(const char *uri) override;
 
@@ -61,15 +61,15 @@ public:
     void initializeTheme(QQuickTheme *theme) override;
 };
 
-QtQuickControls2MaterialStylePlugin::QtQuickControls2MaterialStylePlugin(QObject *parent) : QQuickStylePlugin(parent)
+QtQuickControls2FiberCryptoStylePlugin::QtQuickControls2FiberCryptoStylePlugin(QObject *parent) : QQuickStylePlugin(parent)
 {
     QQuickFiberCryptoStyle::initGlobals();
 }
 
-void QtQuickControls2MaterialStylePlugin::registerTypes(const char *uri)
+void QtQuickControls2FiberCryptoStylePlugin::registerTypes(const char *uri)
 {
     qmlRegisterModule(uri, 2, QT_VERSION_MINOR); // Qt 5.12->2.12, 5.13->2.13...
-    qmlRegisterUncreatableType<QQuickFiberCryptoStyle>(uri, 2, 0, "Material", tr("Material is an attached property"));
+    qmlRegisterUncreatableType<QQuickFiberCryptoStyle>(uri, 2, 0, "FiberCrypto", tr("FiberCrypto is an attached property"));
 
     QByteArray import = QByteArray(uri) + ".impl";
     qmlRegisterModule(import, 2, QT_VERSION_MINOR); // Qt 5.12->2.12, 5.13->2.13...
@@ -87,12 +87,12 @@ void QtQuickControls2MaterialStylePlugin::registerTypes(const char *uri)
     qmlRegisterType(resolvedUrl(QStringLiteral("SwitchIndicator.qml")), import, 2, 0, "SwitchIndicator");
 }
 
-QString QtQuickControls2MaterialStylePlugin::name() const
+QString QtQuickControls2FiberCryptoStylePlugin::name() const
 {
-    return QStringLiteral("Material");
+    return QStringLiteral("FiberCrypto");
 }
 
-void QtQuickControls2MaterialStylePlugin::initializeTheme(QQuickTheme *theme)
+void QtQuickControls2FiberCryptoStylePlugin::initializeTheme(QQuickTheme *theme)
 {
     QQuickFiberCryptoTheme::initialize(theme);
 }
