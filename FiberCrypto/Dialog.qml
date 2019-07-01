@@ -38,8 +38,8 @@ import QtQuick 2.12
 import QtQuick.Templates 2.12 as T
 import QtQuick.Controls 2.12
 import QtQuick.Controls.impl 2.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 T.Dialog {
     id: control
@@ -56,7 +56,7 @@ T.Dialog {
     padding: 24
     topPadding: 20
 
-    Material.elevation: 24
+    FiberCrypto.elevation: 24
 
     enter: Transition {
         // grow_fade_in
@@ -72,11 +72,11 @@ T.Dialog {
 
     background: Rectangle {
         radius: 2
-        color: control.Material.dialogColor
+        color: control.FiberCrypto.dialogColor
 
-        layer.enabled: control.Material.elevation > 0
+        layer.enabled: control.FiberCrypto.elevation > 0
         layer.effect: ElevationEffect {
-            elevation: control.Material.elevation
+            elevation: control.FiberCrypto.elevation
         }
     }
 
@@ -91,7 +91,7 @@ T.Dialog {
         font.pixelSize: 16
         background: PaddedRectangle {
             radius: 2
-            color: control.Material.dialogColor
+            color: control.FiberCrypto.dialogColor
             bottomPadding: -2
             clip: true
         }
@@ -102,12 +102,12 @@ T.Dialog {
     }
 
     T.Overlay.modal: Rectangle {
-        color: control.Material.backgroundDimColor
+        color: control.FiberCrypto.backgroundDimColor
         Behavior on opacity { NumberAnimation { duration: 150 } }
     }
 
     T.Overlay.modeless: Rectangle {
-        color: control.Material.backgroundDimColor
+        color: control.FiberCrypto.backgroundDimColor
         Behavior on opacity { NumberAnimation { duration: 150 } }
     }
 }
