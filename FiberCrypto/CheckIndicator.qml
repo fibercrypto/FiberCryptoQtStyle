@@ -35,16 +35,16 @@
 ****************************************************************************/
 
 import QtQuick 2.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 Rectangle {
     id: indicatorItem
     implicitWidth: 18
     implicitHeight: 18
     color: "transparent"
-    border.color: !control.enabled ? control.Material.hintTextColor
-        : checkState !== Qt.Unchecked ? control.Material.accentColor : control.Material.secondaryTextColor
+    border.color: !control.enabled ? control.FiberCrypto.hintTextColor
+        : checkState !== Qt.Unchecked ? control.FiberCrypto.accentColor : control.FiberCrypto.secondaryTextColor
     border.width: checkState !== Qt.Unchecked ? width / 2 : 2
     radius: 2
 
@@ -72,7 +72,7 @@ Rectangle {
         y: (parent.height - height) / 2
         width: 14
         height: 14
-        source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Material/images/check.png"
+        source: "qrc:/fibercrypto-project/imports/QtQuick/Controls.2/FiberCrypto/images/check.png"
         fillMode: Image.PreserveAspectFit
 
         scale: checkState === Qt.Checked ? 1 : 0
