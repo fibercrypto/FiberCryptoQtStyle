@@ -35,12 +35,12 @@
 ****************************************************************************/
 
 import QtQuick 2.12
-import QtQuick.Controls.Material 2.12
+import QtQuick.Controls.FiberCrypto 2.12
 
 Rectangle {
     id: cursor
 
-    color: parent.Material.accentColor
+    color: parent.FiberCrypto.accentColor
     width: 2
     visible: parent.activeFocus && !parent.readOnly && parent.selectionStart === parent.selectionEnd
 
