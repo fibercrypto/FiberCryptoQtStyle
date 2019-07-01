@@ -35,8 +35,8 @@
 ****************************************************************************/
 
 import QtQuick 2.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 /*
    An effect for standard Material Design elevation shadows. Useful for using as \c layer.effect.
