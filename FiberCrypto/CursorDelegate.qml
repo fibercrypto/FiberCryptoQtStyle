@@ -44,6 +44,9 @@ Rectangle {
     width: 2
     visible: parent.activeFocus && !parent.readOnly && parent.selectionStart === parent.selectionEnd
 
+    // Fading cursor
+    Behavior on opacity { NumberAnimation { duration: 150 } }
+
     Connections {
         target: cursor.parent
         onCursorPositionChanged: {
