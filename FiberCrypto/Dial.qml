@@ -36,8 +36,8 @@
 
 import QtQuick 2.12
 import QtQuick.Templates 2.12 as T
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 T.Dial {
     id: control
@@ -58,7 +58,7 @@ T.Dial {
         color: "transparent"
         radius: width / 2
 
-        border.color: control.enabled ? control.Material.accentColor : control.Material.hintTextColor
+        border.color: control.enabled ? control.FiberCrypto.accentColor : control.FiberCrypto.hintTextColor
     }
 
     handle: SliderHandle {
