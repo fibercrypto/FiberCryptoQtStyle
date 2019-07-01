@@ -3,7 +3,7 @@ TARGETPATH = QtQuick/Controls.2/FiberCrypto
 TEMPLATE = lib
 
 # Uncomment the following line if you want to use a static plugin
-#CONFIG += static
+# CONFIG += static
 
 # Static plugins have special deployment steps:
 # 1. Use the Q_IMPORT_PLUGIN() macro in your application.
@@ -17,9 +17,6 @@ IMPORT_NAME = QtQuick.Controls.FiberCrypto
 IMPORT_VERSION = 2.$$QT_MINOR_VERSION
 
 QT += qml quick
-QT_PRIVATE += core-private gui-private qml-private quick-private quicktemplates2-private quickcontrols2-private
-
-DEFINES += QT_NO_CAST_TO_ASCII QT_NO_CAST_FROM_ASCII
 
 include(fibercrypto.pri)
 
@@ -32,8 +29,3 @@ SOURCES += \
 
 RESOURCES += \
     $$PWD/qtquickcontrols2fibercryptostyleplugin.qrc
-
-CONFIG += no_cxx_module install_qml_files builtin_resources qtquickcompiler
-#load(qml_plugin) # Activating this gives `Project ERROR: Project has no top-level .qmake.conf file.`
-
-#requires(qtConfig(quickcontrols2-fibercrypto)) # Feature does not exists
