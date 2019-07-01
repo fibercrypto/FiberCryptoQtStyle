@@ -38,8 +38,8 @@ import QtQuick 2.12
 import QtQuick.Templates 2.12 as T
 import QtQuick.Controls 2.12
 import QtQuick.Controls.impl 2.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
+import QtQuick.Controls.FiberCrypto 2.12
+import QtQuick.Controls.FiberCrypto.impl 2.12
 
 T.DialogButtonBox {
     id: control
@@ -55,7 +55,7 @@ T.DialogButtonBox {
     alignment: Qt.AlignRight
     buttonLayout: T.DialogButtonBox.AndroidLayout
 
-    Material.foreground: Material.accent
+    FiberCrypto.foreground: FiberCrypto.accent
 
     delegate: Button { flat: true }
 
@@ -68,9 +68,9 @@ T.DialogButtonBox {
     }
 
     background: PaddedRectangle {
-        implicitHeight: control.Material.dialogButtonBoxHeight
+        implicitHeight: control.FiberCrypto.dialogButtonBoxHeight
         radius: 2
-        color: control.Material.dialogColor
+        color: control.FiberCrypto.dialogColor
         // Rounded corners should be only at the top or at the bottom
         topPadding: control.position === T.DialogButtonBox.Footer ? -2 : 0
         bottomPadding: control.position === T.DialogButtonBox.Header ? -2 : 0
