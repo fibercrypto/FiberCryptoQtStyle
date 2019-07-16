@@ -47,9 +47,47 @@ T.Button {
         implicitWidth: 64
         implicitHeight: control.Material.buttonHeight
 
-        radius: 2
+        radius: control.height/2
         color: !control.enabled ? control.Material.buttonDisabledColor :
                 control.highlighted ? control.Material.highlightedButtonColor : control.Material.buttonColor
+
+        gradient: !control.enabled ? gradientDisabled :
+                   control.highlighted ? gradientHighlighted : gradientNormal
+
+        Gradient {
+            id: gradientNormal
+            orientation: Gradient.Horizontal
+            GradientStop {
+                position: 0.00;
+                color: control.Material.buttonColor
+            }
+            GradientStop {
+                position: 1.00;
+                color: Qt.lighter(control.Material.buttonColor, 1.25)
+            }
+        }
+
+        Gradient {
+            id: gradientHighlighted
+            orientation: Gradient.Horizontal
+            GradientStop {
+                position: 0.00;
+                color: control.Material.highlightedButtonColor
+            }
+            GradientStop {
+                position: 1.00;
+                color: Qt.lighter(control.Material.highlightedButtonColor, 1.5)
+            }
+        }
+
+        Gradient {
+            id: gradientDisabled
+            orientation: Gradient.Horizontal
+            GradientStop {
+                position: 0.00;
+                color: control.Material.buttonDisabledColor
+            }
+        }
 
         PaddedRectangle {
             y: parent.height - 4
@@ -71,13 +109,14 @@ T.Button {
         }
 
         Ripple {
-            clipRadius: 2
+            clipRadius: control.height/2 // match the radius of the background
             width: parent.width
             height: parent.height
-            pressed: control.pressed
+            pressed: false//control.pressed
             anchor: control
             active: control.down || control.visualFocus || control.hovered
-            color: control.Material.rippleColor
+            color: control.pressed ? "#2A000000" : control.Material.rippleColor
+            Behavior on color { ColorAnimation {} }
         }
     }
 }
