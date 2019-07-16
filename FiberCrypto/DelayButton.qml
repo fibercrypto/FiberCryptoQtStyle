@@ -40,8 +40,32 @@ T.DelayButton {
         implicitWidth: 64
         implicitHeight: control.Material.buttonHeight
 
-        radius: 2
+        radius: control.height/2
         color: !control.enabled ? control.Material.buttonDisabledColor : control.Material.buttonColor
+
+        gradient: !control.enabled ? gradientDisabled : gradientNormal
+
+        Gradient {
+            id: gradientNormal
+            orientation: Gradient.Horizontal
+            GradientStop {
+                position: 0.00;
+                color: control.Material.buttonColor
+            }
+            GradientStop {
+                position: 1.00;
+                color: Qt.lighter(control.Material.buttonColor, 1.25)
+            }
+        }
+
+        Gradient {
+            id: gradientDisabled
+            orientation: Gradient.Horizontal
+            GradientStop {
+                position: 0.00;
+                color: control.Material.buttonDisabledColor
+            }
+        }
 
         PaddedRectangle {
             y: parent.height - 4
@@ -49,6 +73,8 @@ T.DelayButton {
             height: 4
             radius: 2
             topPadding: -2
+            leftPadding: control.height/4
+            rightPadding: control.height/4
             clip: true
             color: control.checked && control.enabled ? control.Material.accentColor : control.Material.secondaryTextColor
 
@@ -57,7 +83,8 @@ T.DelayButton {
                 height: 4
                 radius: 2
                 topPadding: -2
-                rightPadding: Math.max(-2, width - parent.width)
+                leftPadding: control.height/4
+                rightPadding: control.height/4
                 clip: true
                 color: control.Material.accentColor
             }
@@ -69,13 +96,14 @@ T.DelayButton {
         }
 
         Ripple {
-            clipRadius: 2
+            clipRadius: control.height/2 // match the radius of the background
             width: parent.width
             height: parent.height
-            pressed: control.pressed
+            pressed: false//control.pressed
             anchor: control
             active: control.down || control.visualFocus || control.hovered
-            color: control.Material.rippleColor
+            color: control.pressed ? "#2A000000" : control.Material.rippleColor
+            Behavior on color { ColorAnimation {} }
         }
     }
 }
